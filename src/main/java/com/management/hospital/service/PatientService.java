@@ -14,6 +14,8 @@ public interface PatientService {
 
     String deletePatientById(int id);
 
+    Patient updatePatient(int id , Patient patient);
+
 
 
 }

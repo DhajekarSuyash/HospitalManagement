@@ -3,6 +3,7 @@ package com.management.hospital.serviceImpl;
 import com.management.hospital.entity.Patient;
 import com.management.hospital.repository.PatientRepository;
 import com.management.hospital.service.PatientService;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +40,20 @@ public class PatientServiceImpl implements PatientService {
         patientRepository.deleteById(id);
         String msg = "Patient deleted with id : " + id;
         return msg;
+    }
+
+    @Override
+    public Patient updatePatient(int id, Patient patient) {
+        //get object from database which need to be updated [get by id]
+        Patient patientFromDb = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+        //update patientFromDb with new values
+        patientFromDb.setPatientName(patient.getPatientName());
+        patientFromDb.setAddress(patient.getAddress());
+        patientFromDb.setAge(patient.getAge());
+        patientFromDb.setMobileNumber(patient.getMobileNumber());
+        //save object to db
+        Patient updatedPatient = patientRepository.save(patientFromDb);
+
+        return updatedPatient;
     }
 }
