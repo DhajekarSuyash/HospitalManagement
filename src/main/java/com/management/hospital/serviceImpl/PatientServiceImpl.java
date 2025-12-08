@@ -12,6 +12,11 @@ import java.util.List;
 @Service
 public class PatientServiceImpl implements PatientService {
 
+    public PatientServiceImpl(){
+        System.err.println("In Patient service Impl");
+    }
+
+
     @Autowired
     private PatientRepository patientRepository;
 
