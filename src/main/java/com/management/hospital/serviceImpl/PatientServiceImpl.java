@@ -1,6 +1,7 @@
 package com.management.hospital.serviceImpl;
 
 import com.management.hospital.entity.Patient;
+import com.management.hospital.exception.PatientNotFoundException;
 import com.management.hospital.repository.PatientRepository;
 import com.management.hospital.service.PatientService;
 import org.hibernate.ObjectNotFoundException;
@@ -36,7 +37,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient getPatientById(int id) {
        Patient patient =  patientRepository.findById(id).orElseThrow(
-                () ->  new IllegalArgumentException());
+                () ->  new PatientNotFoundException("Patient is not available with id : " +id));
         return patient;
     }
 
