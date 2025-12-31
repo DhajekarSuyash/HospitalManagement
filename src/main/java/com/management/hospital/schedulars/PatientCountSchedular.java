@@ -9,10 +9,10 @@ public class PatientCountSchedular {
 
 
 
-    @Scheduled(cron = "*/10 * * * * *")
-    public void getCount(){
-        System.err.println("Number of patient in hospital is : 20 " );
-    }
+//    @Scheduled(cron = "*/10 * * * * *")
+//    public void getCount(){
+//        System.err.println("Number of patient in hospital is : 20 " );
+//    }
 
 
 

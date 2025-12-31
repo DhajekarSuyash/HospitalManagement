@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 public class something {
 
     public something(){
-        System.err.println("Something loaded");
+       // System.err.println("Something loaded");
     }
 
     @Bean
     public String getSomething(){
-        System.err.println("get something executed..");
+       // System.err.println("get something executed..");
         return "something";
     }
 }

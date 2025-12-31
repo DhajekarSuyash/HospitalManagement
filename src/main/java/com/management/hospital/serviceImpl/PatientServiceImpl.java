@@ -14,7 +14,7 @@ import java.util.List;
 public class PatientServiceImpl implements PatientService {
 
     public PatientServiceImpl(){
-        System.err.println("In Patient service Impl");
+       // System.err.println("In Patient service Impl");
     }
 
 
@@ -24,7 +24,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient savePatient(Patient patient) {
         Patient newPatient = patientRepository.save(patient);
-        System.err.println("Patient saved successfully");
+      //  System.err.println("Patient saved successfully");
         return newPatient;
     }
 
